@@ -34,40 +34,84 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Replace the existing hero section with this enhanced version -->
     <section class="hero-gradient text-white min-h-screen flex items-center pt-16">
         <div class="container mx-auto px-6 py-24">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
+                    <div class="mb-8">
+                        <!-- Animated Logo -->
+                        <div class="animate-pulse mb-6">
+                            <svg class="w-24 h-24 mb-4" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="100" r="90" stroke="white" stroke-width="2" class="animate-spin-slow"/>
+                                <path d="M100 20 L100 180" stroke="white" stroke-width="2" class="animate-pulse"/>
+                                <path d="M20 100 L180 100" stroke="white" stroke-width="2" class="animate-pulse"/>
+                                <!-- Animated rings -->
+                                <circle cx="100" cy="100" r="40" stroke="white" stroke-width="2" class="animate-ping-slow opacity-50"/>
+                                <circle cx="100" cy="100" r="60" stroke="white" stroke-width="2" class="animate-ping-slow opacity-30"/>
+                                <!-- Central N for Nova -->
+                                <path d="M85 70 L85 130 L115 70 L115 130" stroke="white" stroke-width="4" fill="none" 
+                                      class="animate-draw"/>
+                            </svg>
+                        </div>
+                    </div>
                     <h1 class="text-5xl font-bold mb-6">
-                        Transform Professional Documentation with AI
+                        Transform Documentation with AI
                     </h1>
                     <p class="text-xl mb-8 text-gray-200">
                         Nova Reports revolutionizes professional documentation through advanced AI, reducing report generation time by 60% while improving accuracy and compliance.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="pages/overview.html" class="bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300">
+                        <button class="bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300 relative overflow-hidden group">
+                            <span class="relative z-10">Get Started</span>
+                            <div class="absolute inset-0 bg-blue-100 transform -translate-x-full transition-transform group-hover:translate-x-0"></div>
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-600 transition duration-300">
                             Learn More
-                        </a>
-                        <a href="pages/contact.html" class="border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-600 transition duration-300">
-                            Schedule Demo
-                        </a>
+                        </button>
                     </div>
                 </div>
-                <div data-aos="fade-left" class="hidden md:block relative">
-                    <div class="bg-white p-6 rounded-lg shadow-xl">
-                        <div class="relative bg-gray-100 rounded-lg p-4 mb-4">
-                            <div class="h-4 w-3/4 bg-blue-200 rounded"></div>
+                
+                <!-- Interactive 3D Document Visualization -->
+                <div class="hidden md:block relative" data-aos="fade-left">
+                    <div class="relative perspective-1000">
+                        <!-- Floating documents with animation -->
+                        <div class="absolute top-0 right-0 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                            <div class="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-xl">
+                                <div class="h-4 w-3/4 bg-white/20 rounded mb-4"></div>
+                                <div class="h-4 w-full bg-white/20 rounded mb-4"></div>
+                                <div class="h-4 w-5/6 bg-white/20 rounded"></div>
+                            </div>
                         </div>
-                        <div class="space-y-3">
-                            <div class="h-3 w-full bg-gray-100 rounded"></div>
-                            <div class="h-3 w-5/6 bg-gray-100 rounded"></div>
-                            <div class="h-3 w-4/6 bg-gray-100 rounded"></div>
+                        <div class="absolute top-10 right-10 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                            <div class="bg-white/20 backdrop-blur-lg p-6 rounded-lg shadow-xl">
+                                <div class="h-4 w-3/4 bg-white/30 rounded mb-4"></div>
+                                <div class="h-4 w-full bg-white/30 rounded mb-4"></div>
+                                <div class="h-4 w-5/6 bg-white/30 rounded"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="absolute -right-4 -bottom-4 bg-blue-500 p-6 rounded-lg shadow-xl">
-                        <div class="text-3xl font-bold">60%</div>
-                        <div class="text-sm">Faster Reports</div>
+                        <!-- Main document with AI processing visualization -->
+                        <div class="bg-white p-6 rounded-lg shadow-2xl relative z-10 transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-400 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="h-4 w-3/4 bg-gray-200 rounded animate-pulse"></div>
+                                <div class="h-4 w-full bg-gray-200 rounded animate-pulse delay-100"></div>
+                                <div class="h-4 w-5/6 bg-gray-200 rounded animate-pulse delay-200"></div>
+                            </div>
+                            <!-- AI Processing Indicator -->
+                            <div class="absolute -right-4 -bottom-4 bg-blue-500 p-4 rounded-lg shadow-lg flex items-center space-x-2">
+                                <div class="flex space-x-1">
+                                    <div class="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                                    <div class="w-2 h-2 bg-white rounded-full animate-bounce delay-100"></div>
+                                    <div class="w-2 h-2 bg-white rounded-full animate-bounce delay-200"></div>
+                                </div>
+                                <span class="text-white text-sm font-semibold">AI Processing</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
