@@ -1,1 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact & ROI - Nova Reports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Add Chart.js for interactive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-2xl font-bold gradient-text">Nova Reports</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="overview.html" class="nav-link text-gray-600 hover:text-blue-600">Overview</a>
+                    <a href="technology.html" class="nav-link text-gray-600 hover:text-blue-600">Technology</a>
+                    <a href="implementation.html" class="nav-link text-gray-600 hover:text-blue-600">Implementation</a>
+                    <a href="impact.html" class="nav-link text-blue-600">Impact</a>
+                    <a href="roadmap.html" class="nav-link text-gray-600 hover:text-blue-600">Roadmap</a>
+                    <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-6 gradient-text" data-aos="fade-up">
+                    Measurable Impact & ROI
+                </h1>
+                <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
+                    Discover how Nova Reports delivers substantial returns through improved efficiency, accuracy, and compliance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Key Performance Metrics</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up">
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="efficiencyCounter">60%</div>
+                    <div class="text-gray-600">Time Savings</div>
+                    <div class="mt-4 text-sm text-gray-500">Average reduction in documentation time</div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="accuracyCounter">75%</div>
+                    <div class="text-gray-600">Error Reduction</div>
+                    <div class="mt-4 text-sm text-gray-500">Decrease in documentation errors</div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="roiCounter">4.8</div>
+                    <div class="text-gray-600">Month ROI</div>
+                    <div class="mt-4 text-sm text-gray-500">Average time to positive return</div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-blue-600 mb-2" id="productivityCounter">30%</div>
+                    <div class="text-gray-600">Productivity Gain</div>
+                    <div class="mt-4 text-sm text-gray-500">Increase in staff efficiency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Analysis -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">ROI Analysis</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-6">Cost Savings Breakdown</h3>
+                    <canvas id="costSavingsChart" width="400" height="300"></canvas>
+                </div>
+
+                <div class="bg-gray-50 p-8 rounded-lg shadow-lg" data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-6">Productivity Gains</h3>
+                    <canvas id="productivityChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Impact -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Industry Impact</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Engineering Sector -->
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Engineering Impact</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Report Generation Time</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 83%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">83%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Accuracy Improvement</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">75%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Cost Reduction</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">65%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance Sector -->
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Insurance Impact</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Claims Processing</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 55%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">55%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Dispute Reduction</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">70%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600">Compliance Rate</span>
+                            <div class="w-1/2 bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                            <span class="text-blue-600 font-semibold">95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Success Stories</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up">
+                    <div class="p-6">
+                        <div class="text-xl font-semibold mb-4">Thompson Engineering</div>
+                        <div class="text-gray-600 mb-4">
+                            Achieved 83% reduction in report generation time and improved accuracy by 75%.
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Time Savings</span>
+                                <span class="font-semibold text-blue-600">83%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Cost Reduction</span>
+                                <span class="font-semibold text-blue-600">65%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>ROI Period</span>
+                                <span class="font-semibold text-blue-600">4 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="text-xl font-semibold mb-4">National Insurance</div>
+                        <div class="text-gray-600 mb-4">
+                            Reduced claim processing time by 55% and disputes by 70%.
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Processing Speed</span>
+                                <span class="font-semibold text-blue-600">55%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Dispute Reduction</span>
+                                <span class="font-semibold text-blue-600">70%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>ROI Period</span>
+                                <span class="font-semibold text-blue-600">5 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="text-xl font-semibold mb-4">Memorial Health</div>
+                        <div class="text-gray-600 mb-4">
+                            Improved documentation efficiency by 45% while maintaining HIPAA compliance.
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Efficiency Gain</span>
+                                <span class="font-semibold text-blue-600">45%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Compliance Rate</span>
+                                <span class="font-semibold text-blue-600">100%</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>ROI Period</span>
+                                <span class="font-semibold text-blue-600">6 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Analysis -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16" data-aos="fade-up">Cost Analysis</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-6">Direct Cost Savings</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Labor Cost Reduction</span>
+                                <span class="text-blue-600 font-semibold">$1.2M/year</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Error-Related Savings</span>
+                                <span class="text-blue-600 font-semibold">$800K/year</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Compliance Cost Reduction</span>
+                                <span class="text-blue-600 font-semibold">$500K/year</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-6">Indirect Benefits</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Staff Productivity</span>
+                                <span class="text-blue-600 font-semibold">30% Increase</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Customer Satisfaction</span>
+                                <span class="text-blue-600 font-semibold">40% Improvement</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Processing Speed</span>
+                                <span class="text-blue-600 font-semibold">60% Faster</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-blue-600 rounded-lg shadow-xl overflow-hidden">
+                <div class="grid md:grid-cols-2 items-center">
+                    <div class="p-12" data-aos="fade-right">
+                        <h2 class="text-3xl font-bold text-white mb-6">
+                            Ready to Transform Your ROI?
+                        </h2>
+                        <p class="text-white text-lg mb-8">
+                            Join leading organizations achieving remarkable returns with Nova Reports.
+                        </p>
+                        <a href="contact.html" class="bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 transition duration-300 inline-block">
+                            Calculate Your ROI
+                        </a>
+                    </div>
+                    <div class="hidden md:block p-12" data-aos="fade-left">
+                        <canvas id="roiProjectionChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as other pages) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <!-- Footer content here -->
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out',
+            once: true
+        });
+
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cost Savings Chart
+            const costCtx = document.getElementById('costSavingsChart').getContext('2d');
+            new Chart(costCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [{
+                        label: 'Cost Savings ($M)',
+                        data: [2.5, 3.8, 5.2],
+                        backgroundColor: '#2563eb'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Productivity Chart
+            const prodCtx = document.getElementById('productivityChart').getContext('2d');
+            new Chart(prodCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                        label: 'Productivity Increase (%)',
+                        data: [10, 20, 25, 30],
+                        borderColor: '#2563eb',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+
+            // ROI Projection Chart
+            const roiCtx = document.getElementById('roiProjectionChart').getContext('2d');
+            new Chart(roiCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+                    datasets: [{
+                        label: 'ROI Projection',
+                        data: [-100, -50, 0, 50, 100, 150],
+                        borderColor: '#ffffff',
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
